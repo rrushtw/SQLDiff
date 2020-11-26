@@ -4,6 +4,7 @@ The following contents are the differences compared to MSSQL.
 
 ### Commands
 | Description | MSSQL | MySQL |
+| ----------- | ----- | ----- |
 | To comment one line | -- | # |
 
 ### Create Table
