@@ -9,7 +9,8 @@ The following contents are the differences compared to MSSQL.
 | To comment one line | -- | # |
 | To comment a part | /**/ | /**/ |
 
-/*In order to "SELECT MyColumn FROM MyTable;", and show empty when the value is null*/
+### NULL Functions
+In order to "SELECT MyColumn FROM MyTable;", and show empty when the value is null
 
 MSSQL
 ```bash
@@ -19,6 +20,20 @@ SELECT ISNULL(MyColumn, '') AS MyNewColumn FROM MyTable WITH(NOLOCK);
 MySQL
 ```bash
 SELECT IFNULL(MyColumn, '') AS MyNewColumn FROM MyTable;
+OR
+SELECT COALESCE(MyColumn, '') AS MyNewColumn FROM MyTable;
+```
+
+MS Access
+```bash
+#IsNull in Access is boolean function.
+#IFF(boolean, ValueOfTrue, ValueOfFalse)
+SELECT IIF(IsNull(MyColumn), 0, MyColumn) AS MyNewColumn FROM MyTable;
+```
+
+Oracle
+```bash
+SELECT NVL(MyColumn, '') AS MyNewColumn FROM MyTable;
 ```
 
 ### Create Table
