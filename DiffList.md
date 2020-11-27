@@ -1,5 +1,6 @@
 # SQL
 I use MSSQL as my main language.
+<br />
 The following contents are the differences compared to MSSQL.
 
 ### Commands
@@ -9,6 +10,7 @@ The following contents are the differences compared to MSSQL.
 | To comment a part | /**/ | /**/ |
 
 /*In order to "SELECT MyColumn FROM MyTable;", and show empty when the value is null*/
+
 MSSQL
 ```bash
 SELECT ISNULL(MyColumn, '') AS MyNewColumn FROM MyTable WITH(NOLOCK);
