@@ -9,6 +9,20 @@ The following contents are the differences compared to MSSQL.
 | To comment one line | -- | # |
 | To comment a part | /**/ | /**/ |
 
+### SELECT TOP Clause
+MSSQL, MS Access
+```bash
+SELECT TOP 10 MyColumn FROM MyTable ORDER BY CreatedTime;
+```
+MySQL
+```bash
+SELECT MyColumn FROM MyTable ORDER BY CreatedTime LIMIT 10;
+```
+Oracle
+```bash
+SELECT MyColumn FROM MyTable WHERE ROWNUM < 11 ORDER BY CreatedTime;
+```
+
 ### NULL Functions
 In order to "SELECT MyColumn FROM MyTable;", and show empty when the value is null
 
