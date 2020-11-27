@@ -6,6 +6,18 @@ The following contents are the differences compared to MSSQL.
 | Description | MSSQL | MySQL |
 | ----------- | ----- | ----- |
 | To comment one line | -- | # |
+| To comment a part | /**/ | /**/ |
+
+/*In order to "SELECT MyColumn FROM MyTable;", and show empty when the value is null*/
+MSSQL
+```bash
+SELECT ISNULL(MyColumn, '') AS MyNewColumn FROM MyTable WITH(NOLOCK);
+```
+
+MySQL
+```bash
+SELECT IFNULL(MyColumn, '') AS MyNewColumn FROM MyTable;
+```
 
 ### Create Table
 MSSQL
@@ -38,7 +50,7 @@ GO
 
 EXEC sys.sp_addextendedproperty
 @name = N'MS_Description',
-@value = N'CThe time that this record be created',
+@value = N'The time that this record be created',
 @level0type = N'SCHEMA',
 @level0name = N'dbo',
 @level1type = N'TABLE',
