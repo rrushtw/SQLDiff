@@ -6,7 +6,7 @@ The following contents are the differences compared to MSSQL.
 ### Commands
 | Description | MSSQL | MySQL |
 | ----------- | ----- | ----- |
-| To comment one line | -- | # |
+| To comment one line | -- | # or -- |
 | To comment a part | /**/ | /**/ |
 
 ### SELECT TOP Clause
@@ -21,6 +21,45 @@ SELECT MyColumn FROM MyTable ORDER BY CreatedTime LIMIT 10;
 Oracle
 ```bash
 SELECT MyColumn FROM MyTable WHERE ROWNUM < 11 ORDER BY CreatedTime;
+```
+
+### IF ELSE Statement
+MSSQL
+```bash
+IF (condition_1)
+BEGIN
+	SELECT 'condition 1' AS MyResult;
+END;
+ESLE IF (condition_2)
+BEGIN
+	SELECT 'condition 2' AS MyResult;
+END;
+ELSE
+BGIN
+	SELECT 'else condition' AS MyResult;
+END;
+```
+
+MySQL, MS Access
+```bash
+IF (condition_1) THEN
+	SELECT 'condition 1' AS MyResult;
+ELSEIF (condition_2) THEN
+	SELECT 'condition 2' AS MyResult;
+ELSE
+	SELECT 'else condition' AS MyResult;
+END IF;
+```
+
+Oracle
+```bash
+IF (condition_1) THEN
+	SELECT 'condition 1' AS MyResult;
+ELSIF (condition_2) THEN
+	SELECT 'condition 2' AS MyResult;
+ELSE
+	SELECT 'else condition' AS MyResult;
+END IF;
 ```
 
 ### NULL Functions
@@ -54,9 +93,9 @@ SELECT NVL(MyColumn, '') AS MyNewColumn FROM MyTable;
 MSSQL
 ```bash
 CREATE TABLE MyTable (
-    Id INT NOT NULL Identity(1, 1),
-    MyColumn VARCHAR(10) NULL,
-    CreatedTime DATETIME NOT NULL
+	Id INT NOT NULL Identity(1, 1),
+	MyColumn VARCHAR(10) NULL,
+	CreatedTime DATETIME NOT NULL
 );
 GO
 
@@ -104,10 +143,10 @@ GO
 MySQL
 ```bash
 CREATE TABLE MyTable (
-    Id INT NOT NULL AUTO_INCREMENT,
-    MyColumn VARCHAR(10) NULL COMMENT 'Comment of MyColumn',
-    CreateTime DATETIME NOT NULL COMMENT 'The time that this record be created',
-    PRIMARY KEY (Id)
+	Id INT NOT NULL AUTO_INCREMENT,
+	MyColumn VARCHAR(10) NULL COMMENT 'Comment of MyColumn',
+	CreateTime DATETIME NOT NULL COMMENT 'The time that this record be created',
+	PRIMARY KEY (Id)
 );
 
 CREATE INDEX Index_1
